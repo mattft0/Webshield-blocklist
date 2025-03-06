@@ -22,7 +22,8 @@ def fetch_malicious_domains():
     sources = [
         'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts',
         'https://raw.githubusercontent.com/PolishFiltersTeam/KADhosts/master/KADhosts.txt',
-        # Ajoutez d'autres sources ici
+        'https://raw.githubusercontent.com/romainmarcoux/malicious-domains/refs/heads/main/full-domains-aa.txt',
+        'https://raw.githubusercontent.com/romainmarcoux/malicious-domains/refs/heads/main/full-domains-ab.txt',
     ]
     
     domains = set()
