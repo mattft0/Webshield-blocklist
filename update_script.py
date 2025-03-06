@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import json
-from datetime import datetime
+from datetime import datetime, UTC
 import os
 import requests
 
@@ -51,7 +51,7 @@ def update_blocklist():
     blocklist_data = {
         "total_domains": len(domains),
         "domains": sorted(domains),
-        "last_updated": datetime.utcnow().isoformat()
+        "last_updated": datetime.now(UTC).isoformat()
     }
     
     with open('blocklist.json', 'w', encoding='utf-8') as f:

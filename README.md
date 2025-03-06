@@ -1,15 +1,16 @@
 # WebShield-blocklist
 
-Ce dépôt contient la liste des domaines bloqués utilisée par l'extension WebShield.
+This repository contains the blocklist used by the WebShield Chrome extension to protect users from malicious websites.
 
 ## Structure
 
-- `blocklist.json` : La liste principale des domaines bloqués
-- `update_script.py` : Script pour mettre à jour la liste des domaines
+- `blocklist.json`: Main blocklist file containing malicious domains
+- `update_script.py`: Python script to update the blocklist
+- `requirements.txt`: Python dependencies
 
 ## Format
 
-Le fichier `blocklist.json` suit le format suivant :
+The `blocklist.json` file follows this format:
 ```json
 {
     "total_domains": 1234,
@@ -18,16 +19,41 @@ Le fichier `blocklist.json` suit le format suivant :
 }
 ```
 
-## Mise à jour
+## Sources
 
-La liste est mise à jour régulièrement via le script `update_script.py`. Les contributions sont les bienvenues via Pull Requests.
+The blocklist is aggregated from multiple trusted sources:
+- Steven Black's hosts file
+- KADhosts
+- More sources to be added
 
-## Contribution
+## Automatic Updates
 
-1. Fork ce dépôt
-2. Créez une branche pour vos modifications
-3. Soumettez une Pull Request avec vos changements
+The blocklist is automatically updated daily using GitHub Actions. The `update_script.py` fetches new domains from our sources and updates the blocklist.
 
-## Licence
+## Contributing
 
-MIT License
+1. Fork this repository
+2. Create a feature branch (`git checkout -b feature/improvement`)
+3. Commit your changes (`git commit -am 'Add new malicious domains source'`)
+4. Push to the branch (`git push origin feature/improvement`)
+5. Create a Pull Request
+
+## Development
+
+To set up the development environment:
+
+```bash
+# Create virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run update script
+python update_script.py
+```
+
+## License
+
+MIT License - See LICENSE file for details
